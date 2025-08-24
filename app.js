@@ -3,6 +3,7 @@ let amigos = [];
 
 const campoTextoAmigo = document.getElementById('amigo');
 const campoListaAmigos = document.getElementById('listaAmigos');
+const campoResultado = document.getElementById('resultado');
 
 function limpiarCaja(documentoLimpiar) {
     documentoLimpiar.value = '';
@@ -28,4 +29,21 @@ function actualizarListaAmigos(){
         nuevoAmigo.textContent = amigo
         campoListaAmigos.appendChild(nuevoAmigo);        
     });
+}
+
+function sortearAmigo(){
+    const cantidadAmigos = amigos.length;
+    
+    if(cantidadAmigos == 0) return;
+
+    let numeroAmigoSorteado = Math.random() * cantidadAmigos + 1;
+
+    let numeroAmigoSorteadoa = Math.floor(numeroAmigoSorteado);
+    console.log(numeroAmigoSorteadoa);
+    console.log(amigos[numeroAmigoSorteadoa]);
+    actualizarCampo(campoResultado, amigos[numeroAmigoSorteadoa]);
+}
+
+function actualizarCampo(campo, frase){
+    campo.innerHTML = frase;
 }
